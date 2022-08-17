@@ -58,8 +58,8 @@ const Header = () => {
           <div className='relative'>
             <motion.img 
               whileTap={{scale: 0.6}}
-              src={Avatar} 
-              className='w-10 min-w-[40px] h-10 min-h-[40px] drop-shadow-2xl cursor-pointer' 
+              src={user ? user.photoURL : Avatar} 
+              className='w-10 min-w-[40px] h-10 min-h-[40px] drop-shadow-xl cursor-pointer rounded-full' 
               alt='userprofile'
               onClick={login}
             />
