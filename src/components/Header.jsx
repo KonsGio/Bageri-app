@@ -3,7 +3,7 @@ import React from 'react';
 import { app } from '../firebase.config';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
-import {MdShoppingBasket} from 'react-icons/md';
+import {MdShoppingBasket, MdAdd, MdLogout} from 'react-icons/md';
 import Logo from '../img/logo.png';
 import Avatar from '../img/avatar.png';
 
@@ -21,7 +21,8 @@ const Header = () => {
   // Importing custom hook to provide user data 
   const [{user}, dispatch] = useStateValue();
     const login = async () => {
-      const {user: {refreshToken,providerData}} = await signInWithPopup(firebaseAuth,provider);
+      if(!user){
+        const {user: {refreshToken,providerData}} = await signInWithPopup(firebaseAuth,provider);
       // After successful login we dispatch the user data
       dispatch({
         type: actionType.SET_USER,
@@ -29,6 +30,7 @@ const Header = () => {
       });
       // Local storage with user info 
       localStorage.setItem('user', JSON.stringify(providerData[0]));
+      }
     };
 
   return (
@@ -65,6 +67,19 @@ const Header = () => {
               alt='userprofile'
               onClick={login}
             />
+            <div className='w-40 bg-gray-100 shadow-xl absolute flex flex-col top-12 right-0 rounded-xl'>
+              {
+                user && user.email === "kgiomarcuslucianus@gmail.com" && (
+                  <Link to={'/createItem'}>
+                    <p className='px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-200 
+                    transition-all duration-100 ease-in-out rounded-xl text-textColor text-base'>
+                    Προσθήκη<MdAdd/>
+                  </p>
+                  </Link>
+                )
+              }
+              <p className='px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-200 transition-all duration-100 ease-in-out rounded-xl text-textColor text-base'>Αποσύνδεση<MdLogout/></p>
+            </div>
           </div>
           </div>
         </div>
