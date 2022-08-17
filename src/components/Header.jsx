@@ -1,14 +1,24 @@
 import React from 'react';
+
+import { app } from '../firebase.config';
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+
 import {MdShoppingBasket} from 'react-icons/md';
 import Logo from '../img/logo.png';
 import Avatar from '../img/avatar.png';
+
 import {motion} from 'framer-motion';
 import {Link} from 'react-router-dom';
 
+
 const Header = () => {
 
-  const login = () => {
+  const firebaseAuth = getAuth(app);
+  const provider = new GoogleAuthProvider();
 
+    const login = async () => {
+      const response = await signInWithPopup(firebaseAuth,provider);
+      console.log(response);
   };
 
   return (
@@ -43,7 +53,7 @@ const Header = () => {
               src={Avatar} 
               className='w-10 min-w-[40px] h-10 min-h-[40px] drop-shadow-2xl cursor-pointer' 
               alt='userprofile'
-              onClick={}
+              onClick={login}
             />
           </div>
           </div>
