@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { app } from '../firebase.config';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
@@ -18,6 +18,8 @@ const Header = () => {
   const firebaseAuth = getAuth(app);
   const provider = new GoogleAuthProvider();
 
+  const [isMenu, setIsMenu] = useState(false);
+
   // Importing custom hook to provide user data 
   const [{user}, dispatch] = useStateValue();
     const login = async () => {
@@ -30,6 +32,8 @@ const Header = () => {
       });
       // Local storage with user info 
       localStorage.setItem('user', JSON.stringify(providerData[0]));
+      }else{
+        setIsMenu(!isMenu);
       }
     };
 
@@ -67,7 +71,13 @@ const Header = () => {
               alt='userprofile'
               onClick={login}
             />
-            <div className='w-40 bg-gray-100 shadow-xl absolute flex flex-col top-12 right-0 rounded-xl'>
+            {
+              isMenu && (
+                <motion.div 
+                  initial={{opacity: 0, scale: 0.6}}
+                  animate={{opacity: 1, scale: 1}}
+                  exit={{opacity: 1, scale: 1}}
+                  className='w-40 bg-gray-100 shadow-xl absolute flex flex-col top-12 right-0 rounded-xl'>
               {
                 user && user.email === "kgiomarcuslucianus@gmail.com" && (
                   <Link to={'/createItem'}>
@@ -79,7 +89,9 @@ const Header = () => {
                 )
               }
               <p className='px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-200 transition-all duration-100 ease-in-out rounded-xl text-textColor text-base'>Αποσύνδεση<MdLogout/></p>
-            </div>
+            </motion.div>
+              )
+            }
           </div>
           </div>
         </div>
