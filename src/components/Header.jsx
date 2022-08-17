@@ -10,16 +10,24 @@ import Avatar from '../img/avatar.png';
 import {motion} from 'framer-motion';
 import {Link} from 'react-router-dom';
 
+import {useStateValue} from '../context/StateProvider';
+import {actionType} from '../context/reducer';
 
 const Header = () => {
 
   const firebaseAuth = getAuth(app);
   const provider = new GoogleAuthProvider();
 
+  // Importing custom hook to provide user data 
+  const [{user}, dispatch] = useStateValue();
     const login = async () => {
-      const response = await signInWithPopup(firebaseAuth,provider);
-      console.log(response);
-  };
+      const {user: {refreshToken,providerData}} = await signInWithPopup(firebaseAuth,provider);
+      // After successful login we dispatch the user data
+      dispatch({
+        type: actionType.SET_USER,
+        user: providerData[0],
+      })
+    };
 
   return (
     <header className='fixed z-50 w-screen p-6 px-16'>
