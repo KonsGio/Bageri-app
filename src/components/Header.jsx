@@ -1,8 +1,8 @@
-import React from 'react'
-import {MdShoppingBasket} from 'react-icons/md'
-
-import Logo from '../img/logo.png'
-import Avatar from '../img/avatar.png'
+import React from 'react';
+import {MdShoppingBasket} from 'react-icons/md';
+import Logo from '../img/logo.png';
+import Avatar from '../img/avatar.png';
+import {motion} from 'framer-motion';
 
 const Header = () => {
   return (
@@ -13,7 +13,8 @@ const Header = () => {
             <img src={Logo} className='w-24 object-cover' alt ='logo'/>
             <p className='text-headingColor text-xl font-bold'></p>
           </div>
-          <div className='flex items-center'>
+
+          <div className='flex items-center gap-8'>
           <ul className='flex items-center gap-8'>
             <li className='text-base text-textColor hover:text- transition-all ease-in-out cursor-pointer'>Home</li>
             <li className='text-base text-textColor hover:text-headingColor transition-all ease-in-out cursor-pointer'>Menu</li>
@@ -22,19 +23,27 @@ const Header = () => {
           </ul>
           <div className='relative flex items-center justify-center'>
             <MdShoppingBasket className='text-gray-600 text-2xl ml-8 cursor-pointer'/>
-            <div className='absolute -right-2 -top-4 w-5 h-5 rounded-full bg-cartBg flex items-center justify-center'>
+            <div className='absolute -right-2 -top-2 w-5 h-5 rounded-full bg-red-600 flex items-center justify-center'>
               <p className='text-xs text-white font-semibold'>2</p>
             </div>
           </div>
-            <img src={Avatar} className='w-10 min-2-[40px] h-10 min-h-[40px] drop-shadow-2xl cursor-pointer' alt='userprofile'/>
+
+            <motion.img 
+              whileTap={{scale: 0.6}}
+              src={Avatar} 
+              className='w-10 min-w-[40px] h-10 min-h-[40px] drop-shadow-2xl cursor-pointer' 
+              alt='userprofile'
+            />
+
           </div>
         </div>
+
         {/* mobile */}
         <div className='flex md:hidden w-full h-full '>
 
         </div>
     </header>
   )
-}
+};
 
 export default Header
