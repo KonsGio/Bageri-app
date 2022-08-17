@@ -26,7 +26,9 @@ const Header = () => {
       dispatch({
         type: actionType.SET_USER,
         user: providerData[0],
-      })
+      });
+      // Local storage with user info 
+      localStorage.setItem('user', JSON.stringify(providerData[0]));
     };
 
   return (
