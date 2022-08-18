@@ -22,23 +22,34 @@ const Header = () => {
   
   // Importing custom hook to provide user data 
   const [{user}, dispatch] = useStateValue();
-    const login = async () => {
-      if(!user){
-        const {user: {refreshToken,providerData}} = await signInWithPopup(firebaseAuth,provider);
-      // After successful login we dispatch the user data
-      dispatch({
-        type: actionType.SET_USER,
-        user: providerData[0],
-      });
-      // Local storage with user info 
-      localStorage.setItem('user', JSON.stringify(providerData[0]));
-      }else{
-        setIsMenu(!isMenu);
-      }
-    };
+
+  const login = async () => {
+    if(!user){
+      const {user: {refreshToken,providerData}} = await signInWithPopup(firebaseAuth,provider);
+    // After successful login we dispatch the user data
+    dispatch({
+      type: actionType.SET_USER,
+      user: providerData[0],
+    });
+    // Local storage with user info 
+    localStorage.setItem('user', JSON.stringify(providerData[0]));
+    }else{
+      setIsMenu(!isMenu);
+    }
+  };
+
+  const logout = () => {
+    setIsMenu(false);
+    localStorage.clear();
+
+    dispatch({
+      type: actionType.SET_USER,
+      user: null,
+    });
+  };
 
   return (
-    <header className='fixed z-50 w-screen p-6 px-16'>
+    <header className='fixed z-50 w-screen p-3 px-4 md:p-6 md:px-16'>
         {/* Desktop,tablet */}
         <div className='hidden md:flex w-full h-full items-center justify-between'>
           <Link to={'/'} className='flex items-center gap-2'>
