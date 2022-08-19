@@ -49,7 +49,7 @@ const Header = () => {
   };
 
   return (
-    <header className='fixed z-50 w-screen p-3 px-4 md:p-6 md:px-16'>
+    <header className='fixed z-50 w-screen p-3 px-4 md:p-6 md:px-16 bg-white'>
         {/* Desktop,tablet */}
         <div className='hidden md:flex w-full h-full items-center justify-between'>
           <Link to={'/'} className='flex items-center gap-2'>
@@ -153,10 +153,10 @@ const Header = () => {
                 )
               }
               <ul className='flex flex-col'>
-            <li className='text-base text-textColor px-4 py-2 hover:text-headingColor rounded-xl transition-all ease-in-out cursor-pointer hover:bg-slate-200 '>Home</li>
-            <li className='text-base text-textColor px-4 py-2 hover:text-headingColor rounded-xl transition-all ease-in-out cursor-pointer hover:bg-slate-200 '>Menu</li>
-            <li className='text-base text-textColor px-4 py-2 hover:text-headingColor rounded-xl transition-all ease-in-out cursor-pointer hover:bg-slate-200 '>About Us</li>
-            <li className='text-base text-textColor px-4 py-2 hover:text-headingColor rounded-xl transition-all ease-in-out cursor-pointer hover:bg-slate-200 '>Services</li>
+            <li className='text-base text-textColor px-4 py-2 hover:text-headingColor rounded-xl transition-all ease-in-out cursor-pointer hover:bg-slate-200 ' onClick={() => setIsMenu(false)}>Home</li>
+            <li className='text-base text-textColor px-4 py-2 hover:text-headingColor rounded-xl transition-all ease-in-out cursor-pointer hover:bg-slate-200 ' onClick={() => setIsMenu(false)}>Menu</li>
+            <li className='text-base text-textColor px-4 py-2 hover:text-headingColor rounded-xl transition-all ease-in-out cursor-pointer hover:bg-slate-200 ' onClick={() => setIsMenu(false)}>About Us</li>
+            <li className='text-base text-textColor px-4 py-2 hover:text-headingColor rounded-xl transition-all ease-in-out cursor-pointer hover:bg-slate-200 ' onClick={() => setIsMenu(false)}>Services</li>
           </ul>
               <p className='m-2 p-2 flex shadow-md items-center justify-center gap-3 bg-gray-200 cursor-pointer hover:bg-gray-300 transition-all duration-100 ease-in-out rounded-lg text-textColor text-base' onClick={logout}>Αποσύνδεση<MdLogout/></p>
             </motion.div>
@@ -168,4 +168,4 @@ const Header = () => {
   )
 };
 
-export default Header
+export default Header;
