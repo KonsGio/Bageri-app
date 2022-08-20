@@ -8,13 +8,13 @@ import { actionType } from './context/reducer';
 
 
 const App = () => {
-  const [{fooItems}, dispatch] = useStateValue();
+  const [{foodItems}, dispatch] = useStateValue();
 
   const fetchData = async () => {
     await getAllFoodItems() .then(data => {
       dispatch({
         type: actionType.SET_FOOD_ITEMS,
-        fooItems: data
+        foodItems: data
       });
     });
   };
