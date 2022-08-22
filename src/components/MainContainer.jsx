@@ -5,10 +5,11 @@ import { motion } from "framer-motion";
 import RowContainer from './RowContainer';
 import {useStateValue} from '../context/StateProvider';
 import MenuContainer from './MenuContainer';
+import CartContainer from "./CartContainer";
 
 const MainContainer = () => {
 
-  const [{foodItems}, dispatch] = useStateValue();
+  const [{foodItems, cartShow}, dispatch] = useStateValue();
 
   const rowContainerRef = useRef();
 
@@ -51,7 +52,7 @@ const MainContainer = () => {
       </section>
       <MenuContainer />
 
-      {/* {cartShow && <CartContainer />} */}
+      {cartShow && <CartContainer />}
     </div>
   )
 };
