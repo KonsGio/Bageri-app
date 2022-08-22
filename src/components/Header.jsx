@@ -21,7 +21,7 @@ const Header = () => {
   const [isMenu, setIsMenu] = useState(false);
   
   // Importing custom hook to provide user data 
-  const [{user}, dispatch] = useStateValue();
+  const [{user, cartShow}, dispatch] = useStateValue();
 
   const login = async () => {
     if(!user){
@@ -45,6 +45,13 @@ const Header = () => {
     dispatch({
       type: actionType.SET_USER,
       user: null,
+    });
+  };
+
+  const showCart = () => {
+    dispatch({
+      type: actionType.SET_CART_SHOW,
+      cartShow: !cartShow,
     });
   };
 
@@ -72,7 +79,7 @@ const Header = () => {
             <li className='text-base text-textColor hover:text-headingColor transition-all ease-in-out cursor-pointer'>About Us</li>
             <li className='text-base text-textColor hover:text-headingColor transition-all ease-in-out cursor-pointer'>Services</li>
           </motion.ul>
-          <div className='relative flex items-center justify-center'>
+          <div className='relative flex items-center justify-center' onClick={showCart}>
             <MdShoppingBasket className='text-gray-600 text-2xl ml-8 cursor-pointer'/>
             <div className='absolute -right-3 -top-3 w-5 h-5 rounded-full bg-red-600 flex items-center justify-center'>
               <p className='text-xs text-white font-semibold'>2</p>
@@ -113,7 +120,7 @@ const Header = () => {
 
         {/* mobile */}
         <div className='flex items-center justify-between md:hidden w-full h-full '>
-          <div className='relative flex items-center justify-center'>
+          <div className='relative flex items-center justify-center' onClick={showCart}>
             <MdShoppingBasket className='text-gray-600 text-2xl ml-8 cursor-pointer'/>
             <div className='absolute -right-3 -top-3 w-5 h-5 rounded-full bg-red-600 flex items-center justify-center'>
               <p className='text-xs text-white font-semibold'>2</p>
