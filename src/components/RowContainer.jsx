@@ -25,7 +25,7 @@ const RowContainer = ({flag, data, scrollValue}) => {
             <div className='w-full flex items-center justify-between'>
               <motion.img
                 whileHover={{ scale: 1.1 }}
-                src="https://firebasestorage.googleapis.com/v0/b/bageri-b9cb3.appspot.com/o/Images%2F1661008141363-FLkHXY2WYAYOTI2.jfif?alt=media&token=4cfa8c77-553b-4af5-b46b-abe0cfc1ff79" 
+                src={item?.imageURL}
                 className='w-40 -mt-8 drop-shadow-2xl' alt=''/>
               <motion.div 
                 whileTap={{ scale: 0.75 }}
@@ -35,14 +35,14 @@ const RowContainer = ({flag, data, scrollValue}) => {
             </div>
             <div className='w-full flex flex-col items-end justify-end'>
               <p className="text-textColor font-semibold text-base md:text-lg">
-                Chocolate
+                {item?.title}
               </p>
               <p className="mt-1 text-sm text-gray-500">
-                Calories
+                {item?.calories} Θερμίδες
               </p>
             <div className="flex items-center gap-8">
               <p className="text-lg text-headingColor font-semibold">
-                <span className="text-sm text-red-500">$</span>5.00
+                <span className="text-sm text-red-500">€ </span>{item?.price}
               </p>
             </div>
           </div>
