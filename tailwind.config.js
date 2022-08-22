@@ -55,8 +55,9 @@ module.exports = {
         cartBg: "#282a2c",
         cartItem: "#2e3033",
         cartTotal: "#343739",
+        rowBg:'rgba(255,131,0,0.2)',
       },
     },
   },
-  // plugins: [require("tailwind-scrollbar")],
+  plugins: [require("tailwind-scrollbar")],
 };
