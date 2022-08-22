@@ -1,9 +1,14 @@
 import React from 'react';
 import HomeContainer from './HomeContainer';
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
-import { motion } from "framer-motion";
+import { m, motion } from "framer-motion";
+import RowContainer from './RowContainer';
+import {useStateValue} from '../context/StateProvider';
 
 const MainContainer = () => {
+
+  const [{foodItems}, dispatch] = useStateValue();
+
   return (
     <div className='flex flex-col h-auto justify-center items-center w-full'>
      <HomeContainer/>
@@ -29,6 +34,10 @@ const MainContainer = () => {
             </motion.div>
           </div>
         </div>
+        <RowContainer 
+          flag={true} 
+            data = {foodItems?.filter((n) => n.category === 'fruits')}
+        />
       </section>
     </div>
   )
