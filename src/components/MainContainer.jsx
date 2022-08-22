@@ -4,6 +4,7 @@ import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import { motion } from "framer-motion";
 import RowContainer from './RowContainer';
 import {useStateValue} from '../context/StateProvider';
+import MenuContainer from './MenuContainer';
 
 const MainContainer = () => {
 
@@ -20,8 +21,8 @@ const MainContainer = () => {
 
      <section className="w-full my-6">
         <div className="w-full flex items-center justify-between">
-          <p className="text-2xl font-semibold capitalize text-headingColor relative before:absolute before:rounded-lg before:content before:w-32 before:h-1 before:-bottom-2 before:left-0 before:bg-gradient-to-tr from-orange-400 to-orange-600 transition-all ease-in-out duration-100">
-            Our fresh & healthy fruits
+          <p className="text-2xl font-semibold capitalize text-headingColor relative before:absolute before:rounded-lg before:content before:w-96 before:h-1.5 before:-bottom-2 before:left-0 before:bg-gradient-to-tr from-orange-400 to-orange-600 transition-all ease-in-out duration-100">
+            Φρέσκα και βιολογικά φρούτα
           </p>
 
           <div className="hidden md:flex gap-3 items-center">
@@ -48,6 +49,9 @@ const MainContainer = () => {
            data = {foodItems?.filter((n) => n.category === 'fruits')}
         />
       </section>
+      <MenuContainer />
+
+      {/* {cartShow && <CartContainer />} */}
     </div>
   )
 };
