@@ -46,7 +46,6 @@ const CreateContainer = () => {
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
       },
       (error) => {
-        console.log(error);
         setFields(true);
         setMsg("Error while uploading : Try AGain 🙇");
         setAlertStatus("danger");
@@ -117,7 +116,6 @@ const CreateContainer = () => {
         clearData();
       }
     } catch (error) {
-      console.log(error);
       setFields(true);
       setMsg("Error while uploading : Try AGain 🙇");
       setAlertStatus("danger");
