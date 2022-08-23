@@ -16,10 +16,10 @@
     <a href="https://bageri-delivery.netlify.app"><strong>Bageri</strong></a>
     <br />
     <br />
-    <a href="https://github.com/KonsGio/Bageri-app"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/KonsGio/Bageri-app"><strong>Explore the docs</strong></a>
     <br />
     <br />
-    <a href="https://bageri-app.netlify.app">View Demo</a>
+    <a href="https://bageri-delivery.netlify.app">View Demo</a>
     ·
     <a href="https://github.com/KonsGio/Bageri-app/issues">Report Bug</a>
     ·
@@ -69,6 +69,7 @@
 * [![KGIO.DEV][SITE]][SITE-url]
 * [![LinkedIn][linkedin-shield]][linkedin-url]
 
+* [![Netlify Status](https://api.netlify.com/api/v1/badges/2f30dee3-554e-4fd5-b44b-87cbe92bc7ae/deploy-status)](https://app.netlify.com/sites/bageri-delivery/deploys)
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
