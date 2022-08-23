@@ -1,8 +1,7 @@
 import React from "react";
-import Delivery from "../img/delivery.png";
+// import Delivery from "../img/delivery.png";
 import HeroBg from "../img/heroBg.png";
 import { heroData } from "../utils/data";
-import { motion } from "framer-motion";
 
 const HomeContainer = () => {
   return (
