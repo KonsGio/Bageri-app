@@ -2,6 +2,7 @@ import React from "react";
 import Delivery from "../img/delivery.png";
 import HeroBg from "../img/heroBg.png";
 import { heroData } from "../utils/data";
+import { motion } from "framer-motion";
 
 const HomeContainer = () => {
   return (
@@ -10,8 +11,8 @@ const HomeContainer = () => {
       id="home"
     >
       <div className="py-2 flex-1 flex flex-col items-start justify-center gap-6">
-        <div className="flex items-center gap-2 justify-center bg-orange-100 px-4 py-1 rounded-full">
-          <p className="text-base text-orange-500 font-semibold">
+        {/* <div className="flex items-center gap-2 justify-center bg-gray-100 px-4 py-1 rounded-full">
+          <p className="text-base text-gray-500 font-semibold">
             Bike Delivery
           </p>
           <div className="w-8 h-8 bg-white rounded-full overflow-hidden drop-shadow-xl">
@@ -21,12 +22,12 @@ const HomeContainer = () => {
               alt="delivery"
             />
           </div>
-        </div>
+        </div> */}
 
         <p className="text-[2.5rem] lg:text-[4.5rem] font-bold tracking-wide text-headingColor">
-          The Fastest Delivery in
-          <span className="text-orange-600 text-[3rem] lg:text-[5rem]">
-            Your City
+          Το Bageri απέκτησε <br></br>
+          <span className="text-gray-600 text-[3rem] lg:text-[5rem]">
+            Delivery
           </span>
         </p>
 
@@ -39,9 +40,9 @@ const HomeContainer = () => {
 
         <button
           type="button"
-          className="bg-gradient-to-br from-orange-400 to-orange-500 w-full md:w-auto px-4 py-2  rounded-lg hover:shadow-lg transition-all ease-in-out duration-100"
+          className="bg-gradient-to-r from-gray-400 to-gray-500 w-full md:w-auto px-4 py-2  rounded-lg transition-all ease-in-out duration-100"
         >
-          Order Now
+          Παράγγειλε τώρα
         </button>
       </div>
       <div className="py-2 flex-1 flex items-center relative">
@@ -72,7 +73,7 @@ const HomeContainer = () => {
                 </p>
 
                 <p className="text-sm font-semibold text-headingColor">
-                  <span className="text-xs text-red-600">$</span> {n.price}
+                  <span className="text-xs text-gray-600">€</span> {n.price}
                 </p>
               </div>
             ))}

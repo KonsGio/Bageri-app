@@ -12,6 +12,7 @@ import {Link} from 'react-router-dom';
 
 import {useStateValue} from '../context/StateProvider';
 import {actionType} from '../context/reducer';
+import MenuContainer from './MenuContainer';
 
 const Header = () => {
 
@@ -74,10 +75,9 @@ const Header = () => {
             animate={{opacity: 1, x: 0}} 
             exit={{opacity: 0, x: 200}} 
             className='flex items-center gap-8'>
-            <li className='text-base text-textColor hover:text-headingColor transition-all ease-in-out cursor-pointer'>Home</li>
-            <li className='text-base text-textColor hover:text-headingColor transition-all ease-in-out cursor-pointer'>Menu</li>
-            <li className='text-base text-textColor hover:text-headingColor transition-all ease-in-out cursor-pointer'>About Us</li>
-            <li className='text-base text-textColor hover:text-headingColor transition-all ease-in-out cursor-pointer'>Services</li>
+            <Link to={'/'} ><li className='text-base text-textColor hover:text-headingColor transition-all ease-in-out cursor-pointer'>Αρχική</li></Link>
+            <Link to={'/menu'}><li className='text-base text-textColor hover:text-headingColor transition-all ease-in-out cursor-pointer'>Μενού</li></Link>
+            <Link to={'/about'} ><li className='text-base text-textColor hover:text-headingColor transition-all ease-in-out cursor-pointer'>Επικοινωνία</li></Link>
           </motion.ul>
 
           <div className='relative flex items-center justify-center' onClick={showCart}>

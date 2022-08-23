@@ -6,7 +6,7 @@ import {
   MdCloudUpload,
   MdDelete,
   MdFoodBank,
-  MdAttachMoney,
+  MdOutlineEuro
 } from "react-icons/md";
 import { categories } from "../utils/data";
 import Loader from "./Loader";
@@ -47,8 +47,8 @@ const CreateContainer = () => {
       },
       (error) => {
         setFields(true);
-        setMsg("Error while uploading : Try AGain 🙇");
-        setAlertStatus("danger");
+        setMsg("Δημιουργήθηκε κάποιο σφάλμα : Προσπαθήστε ξανά");
+        setAlertStatus("Σφάλμα");
         setTimeout(() => {
           setFields(false);
           setIsLoading(false);
@@ -59,8 +59,8 @@ const CreateContainer = () => {
           setImageAsset(downloadURL);
           setIsLoading(false);
           setFields(true);
-          setMsg("Image uploaded successfully 😊");
-          setAlertStatus("success");
+          setMsg("Η φωτογραφία ανέβηκε επιτυχώς");
+          setAlertStatus("Επιτυχία");
           setTimeout(() => {
             setFields(false);
           }, 4000);
@@ -76,8 +76,8 @@ const CreateContainer = () => {
       setImageAsset(null);
       setIsLoading(false);
       setFields(true);
-      setMsg("Image deleted successfully 😊");
-      setAlertStatus("success");
+      setMsg("Η φωτογραφία διαγράφηκε επιτυχώς");
+      setAlertStatus("Επιτυχία");
       setTimeout(() => {
         setFields(false);
       }, 4000);
@@ -89,8 +89,8 @@ const CreateContainer = () => {
     try {
       if (!title || !calories || !imageAsset || !price || !category) {
         setFields(true);
-        setMsg("Required fields can't be empty");
-        setAlertStatus("danger");
+        setMsg("Πρέπει να συμπληρώσετε ολα τα πεδία");
+        setAlertStatus("Σφάλμα");
         setTimeout(() => {
           setFields(false);
           setIsLoading(false);
@@ -108,8 +108,8 @@ const CreateContainer = () => {
         saveItem(data);
         setIsLoading(false);
         setFields(true);
-        setMsg("Data Uploaded successfully 😊");
-        setAlertStatus("success");
+        setMsg("Επιτυχία προσθήκης");
+        setAlertStatus("Επιτυχία");
         setTimeout(() => {
           setFields(false);
         }, 4000);
@@ -117,8 +117,8 @@ const CreateContainer = () => {
       }
     } catch (error) {
       setFields(true);
-      setMsg("Error while uploading : Try AGain 🙇");
-      setAlertStatus("danger");
+      setMsg("EΔημιουργήθηκε κάποιο σφάλμα : Προσπαθήστε ξανά");
+      setAlertStatus("Σφάλμα");
       setTimeout(() => {
         setFields(false);
         setIsLoading(false);
@@ -133,7 +133,7 @@ const CreateContainer = () => {
     setImageAsset(null);
     setCalories("");
     setPrice("");
-    setCategory("Select Category");
+    setCategory("Επιλέξτε κατηγορία");
   };
 
   const fetchData = async () => {
@@ -170,7 +170,7 @@ const CreateContainer = () => {
             required
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            placeholder="Give me a title..."
+            placeholder="Πληκτρολογήστε τίτλο προιόντος..."
             className="w-full h-full text-lg bg-transparent outline-none border-none placeholder:text-gray-400 text-textColor"
           />
         </div>
@@ -181,7 +181,7 @@ const CreateContainer = () => {
             className="outline-none w-full text-base border-b-2 border-gray-200 p-2 rounded-md cursor-pointer"
           >
             <option value="other" className="bg-white">
-              Select Category
+              Επιλέξτε κατηγορία
             </option>
             {categories &&
               categories.map((item) => (
@@ -207,7 +207,7 @@ const CreateContainer = () => {
                     <div className="w-full h-full flex flex-col items-center justify-center gap-2">
                       <MdCloudUpload className="text-gray-500 text-3xl hover:text-gray-700" />
                       <p className="text-gray-500 hover:text-gray-700">
-                        Click here to upload
+                        Ανέβασμα φωτογραφίας
                       </p>
                     </div>
                     <input
@@ -249,19 +249,19 @@ const CreateContainer = () => {
               required
               value={calories}
               onChange={(e) => setCalories(e.target.value)}
-              placeholder="Calories"
+              placeholder="Θερμίδες"
               className="w-full h-full text-lg bg-transparent outline-none border-none placeholder:text-gray-400 text-textColor"
             />
           </div>
 
           <div className="w-full py-2 border-b border-gray-300 flex items-center gap-2">
-            <MdAttachMoney className="text-gray-700 text-2xl" />
+            <MdOutlineEuro className="text-gray-700 text-2xl" />
             <input
               type="text"
               required
               value={price}
               onChange={(e) => setPrice(e.target.value)}
-              placeholder="Price"
+              placeholder="Τιμή"
               className="w-full h-full text-lg bg-transparent outline-none border-none placeholder:text-gray-400 text-textColor"
             />
           </div>
@@ -273,7 +273,7 @@ const CreateContainer = () => {
             className="ml-0 md:ml-auto w-full md:w-auto border-none outline-none bg-emerald-500 px-12 py-2 rounded-lg text-lg text-white font-semibold"
             onClick={saveDetails}
           >
-            Save
+            Αποθήκευση
           </button>
         </div>
       </div>

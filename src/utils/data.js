@@ -37,38 +37,38 @@ export const heroData = [
 export const categories = [
   {
     id: 1,
-    name: "Chicken",
-    urlParamName: "chicken",
+    name: "Πίτες",
+    urlParamName: "Πίτες",
   },
   {
     id: 2,
-    name: "Curry",
-    urlParamName: "curry",
+    name: "Χυμοί",
+    urlParamName: "Χυμοί",
   },
   {
     id: 3,
-    name: "Rice",
-    urlParamName: "rice",
+    name: "Μπισκότα",
+    urlParamName: "Μπισκότα",
   },
   {
     id: 4,
-    name: "Fish",
-    urlParamName: "fish",
+    name: "Αλκοόλ",
+    urlParamName: "Αλκοόλ",
   },
   {
     id: 5,
-    name: "Fruits",
-    urlParamName: "fruits",
+    name: "Καφέδες",
+    urlParamName: "Καφέδες",
   },
   {
     id: 6,
-    name: "Icecreams",
-    urlParamName: "icecreams",
+    name: "Παγωτά",
+    urlParamName: "Παγωτά",
   },
 
   {
     id: 7,
-    name: "Soft Drinks",
-    urlParamName: "drinks",
+    name: "Αναψυκτικά",
+    urlParamName: "Αναψυκτικά",
   },
 ];
